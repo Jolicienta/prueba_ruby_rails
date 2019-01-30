@@ -1,17 +1,21 @@
-<h1>INDEX</h1>
 
-<%= link_to 'Crear ToDo', todos_new_path %>
+<div class="index">
+  <%= notice %>
+  <h1>INDEX</h1>
 
-<ul class="list-group">
+  <%= link_to 'Crear nuevo ToDo', todos_new_path %>
 
-  <% @todos.each do |todo| %>
-  <li class="list-group-item"><%= todo %></li>
-  <% end %>
+  <ul class="list-group">
+    <% @todos.each do |todo| %>
+    <li class="list-group-item">
+      <%= todo.description %>
+      <%= todo.completed %>
+      <%= link_to 'Mostrar', todo_path(todo.id) %>
+      <%= link_to 'Edit', edit_path(todo.id) %>
+      <%= link_to 'Delete', todo, method: :delete %>
+      <button type="button" name="button"> <%= link_to 'Completado', completed_path(todo.id), method: :patch %> </button>
+    <% end %>
+    </li>
+  </ul>
 
-
-  <li class="list-group-item">Dapibus ac facilisis in</li>
-  <li class="list-group-item">Morbi leo risus</li>
-  <li class="list-group-item">Porta ac consectetur ac</li>
-  <li class="list-group-item">Vestibulum at eros</li>
-
-</ul>
+</div>

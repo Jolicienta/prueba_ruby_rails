@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   #ruta '/todos' que apunte al método todos#index
   get 'todos', to: 'todos#index'
+  get 'todos/new', to: 'todos#new'
 
   root 'todos#index'
 
